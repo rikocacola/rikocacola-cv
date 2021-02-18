@@ -1,6 +1,7 @@
 import Head from 'next/head';
 
 import Profile from '../components/Profile/Profile';
+import Projects from '../components/Projects/Projects';
 import Skills from '../components/Skills/Skills'
 
 const Home = () => {
@@ -13,7 +14,7 @@ const Home = () => {
       <div>
         <Profile />
         <Skills />
-        <Profile />
+        <Projects />
       </div>
     </>
   )
