@@ -2,8 +2,6 @@ import styles from './Projects.module.scss'
 
 import { projectsData } from '../../data'
 
-import Image from 'next/image'
-
 const Projects = () => {
     return (
         <section className={styles.projectWrap}>
@@ -15,8 +13,8 @@ const Projects = () => {
                             <h2>{project.title}</h2>
                             <p className="HeadingMd">{project.description}</p>
                             <p className="HeadingMd">Tech : {project.tech}</p>
-                            <a href={project.link} className={styles.button} target="_blank">SEE LIVE</a>
-                            <a href={project.source} className={styles.button} target="_blank">SOURCE CODE</a>
+                            <a href={project.link} className="button" target="_blank">SEE LIVE</a>
+                            <a href={project.source} className="button" target="_blank">SOURCE CODE</a>
                         </div>
                     ))
                 }

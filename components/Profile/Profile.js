@@ -18,7 +18,7 @@ const Profile = () => {
                 <p className={`${styles.intoduction} HeadingMd`}>
                     <strong className="secondary-color">Hello,</strong>  my name is <strong className="secondary-color">Riko Chair Nugroho</strong>, I'm bachelor of Computer Science. I've  experience with Javascript using ReactJS framework. I always want to learn new things to achieve goals. I am capable of working well in a team and on my own.
             </p>
-                <a href="https://www.google.com" className={styles.button} target="_blank">VIEW RESUME</a>
+                <a href="https://www.google.com" className="button" target="_blank">VIEW RESUME</a>
             </div>
         </section>
     )
