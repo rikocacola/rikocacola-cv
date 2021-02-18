@@ -1,17 +1,25 @@
 import Head from 'next/head';
+import { Container, Col, Row } from 'react-bootstrap';
 
-import Profile from '../components/Profile'
+import Profile from '../components/Profile/Profile';
+import Skills from '../components/Skills/Skills'
 
 const Home = () => {
   return (
     <>
       <Head>
-        <title>Create Next App</title>
+        <title>Riko Chair | Frontend Developer</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div>
-        <Profile />
-      </div>
+      <Container>
+        <Row>
+          <Col xs={8}>
+            <Profile />
+            <Skills />
+          </Col>
+        </Row>
+
+      </Container>
     </>
   )
 }

@@ -1,0 +1,37 @@
+.profile {
+    margin: auto;
+    border-bottom: #800517 1px solid;
+    align-items: center;
+    width: 80%;
+    // height: 100vh;
+    min-height: 100vh;
+    padding: 7rem 0;
+    margin-bottom: 3rem;
+
+    .image {
+        .borderCircle {
+            border-radius: 9999px;
+        }
+    }
+    .name {
+        margin: 1rem 0 0 0;
+    }
+    .headline {
+        margin: 0.3rem 0 3rem 0;
+    }
+    .intoduction{
+        margin: 0.3rem 0 3rem 0;
+    }
+    .button {
+        margin-top: 3rem;
+        background-color: #fffbfb;
+        color: #800517;
+        padding: 0.8rem;
+        border: #800517 1px solid;
+        border-radius: 5px;
+    }
+    .button:hover {
+        background-color: #800517;
+        color: #fffbfb;
+    }
+}

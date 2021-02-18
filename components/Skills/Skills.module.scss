@@ -1,0 +1,14 @@
+.wrap{
+    width: 80%;
+    margin:auto;
+    .title {
+        margin-bottom: 2rem;
+    }
+    .cardWrap {
+        display: flex;
+        flex-direction: row;
+        .card{
+            width: 25%;
+        }
+    }
+}
