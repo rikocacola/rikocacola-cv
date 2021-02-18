@@ -13,8 +13,8 @@ const Skills = () => {
                 {
                     skillsData.map((skill, index) => (
                         <div key={index} className={styles.card}>
-                            <Image src={`${skill.imgURL}`} width={56} height={56} />
-                            <p>{skill.title}</p>
+                            <Image src={`${skill.imgURL}`} width={100} height={100} />
+                            <p className={skill.title}>{skill.title}</p>
                         </div>
                     ))
                 }
