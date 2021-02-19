@@ -15,8 +15,7 @@
         border-left: 8px solid #fff;
        }
        .card:hover {
-           transform: scale(1.01);
-           transition: transform 1s;
+           border-left: 8px solid #800517;
        }
     }
 }
