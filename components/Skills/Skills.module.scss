@@ -20,6 +20,11 @@
                 justify-content: center;
                 align-items: center;
             }
+            .card:hover{
+                transform: scale(0.90);
+                transition: transform 2s;
+                cursor: pointer;
+            }
         }
     }
 

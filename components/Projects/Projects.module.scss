@@ -2,7 +2,7 @@
     width: 80%;
     margin:auto;
     padding-bottom: 54px;
-    border-bottom: #800517 1px solid;
+    // border-bottom: #800517 1px solid;
     .title {
         text-align: center;
         margin-bottom: 2rem;
@@ -13,6 +13,10 @@
         background: #fff;
         margin: 20px 10px;
         border-left: 8px solid #fff;
+       }
+       .card:hover {
+           transform: scale(1.01);
+           transition: transform 1s;
        }
     }
 }
