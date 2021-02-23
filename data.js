@@ -33,21 +33,21 @@ export const projectsData = [
     {
         title: "Cats Rolodex",
         description: "Cats Rolodex is a web application to find cat by seaching their name.",
-        tech: "ReactJS",
+        tech: "/icon/icon-react.png",
         link: "https://rikocacola.github.io/cats-rolodex/",
         source: "https://github.com/rikocacola/cats-rolodex"
     },
     {
         title: "Movie DB",
         description: "Movie DB is a web application to search movie and the details about the movie like Actors, Writers, Plot, and etc.",
-        tech: "ReactJS",
+        tech: "/icon/icon-react.png",
         link: "https://rikocacola.github.io/movie-db/",
         source: "https://github.com/rikocacola/movie-db"
     },
     {
         title: "Aniflix",
         description: "Aniflix is a web application to find anime based on airing, movie, and etc. You can  find the anime trailer, anime score, etc.",
-        tech: "ReactJS",
+        tech: "/icon/icon-react.png",
         link: "https://rikocacola.github.io/aniflix/",
         source: "https://github.com/rikocacola/aniflix"
     }

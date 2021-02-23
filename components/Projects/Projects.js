@@ -9,10 +9,9 @@ const Projects = () => {
             <div className={styles.cardWrap}>
                 {
                     projectsData.map((project, index) => (
-                        <div key={index} className={styles.card}>
+                        <div key={index} className={styles.card} style={{ backgroundImage: `url(${project.tech})` }}>
                             <h2>{project.title}</h2>
                             <p className="HeadingMd">{project.description}</p>
-                            <p className="HeadingMd">Tech : {project.tech}</p>
                             <a href={project.link} className="button" target="_blank">SEE LIVE</a>
                             <a href={project.source} className="button" target="_blank">SOURCE CODE</a>
                         </div>
