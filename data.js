@@ -50,5 +50,12 @@ export const projectsData = [
         tech: "/icon/icon-react.png",
         link: "https://rikocacola.github.io/aniflix/",
         source: "https://github.com/rikocacola/aniflix"
+    },
+    {
+        title: "Reaction Time Test",
+        description: "Reaction Time Test is a web application to test your reaction time",
+        tech: "/icon/icon-vue.png",
+        link: "https://rikocacola.github.io/reaction-time/",
+        source: "https://reaction-time.vercel.app/"
     }
 ];
