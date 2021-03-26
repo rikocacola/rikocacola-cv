@@ -8,6 +8,10 @@ export const skillsData = [
         title: "NextJS"
     },
     {
+        imgURL: "/icon/icon-vue.png",
+        title: "VueJS"
+    },
+    {
         imgURL: "/icon/icon-sass.png",
         title: "Sass"
     },
