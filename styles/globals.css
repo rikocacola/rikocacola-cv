@@ -1,4 +1,13 @@
-html,
+:root{
+  --sky-blue: #99c8dc;
+  --dark-sky-blue : #6fa6bd;
+  --light-grey: #efefef;
+  --brown: #988879;
+}
+
+html {
+  scroll-snap-type: y;
+}
 body {
   padding: 0;
   margin: 0;
@@ -6,7 +15,7 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   line-height: 1.6;
   font-size: 18px;
-  background-color: #fffbfb;
+  background: linear-gradient(90deg, var(--dark-sky-blue) 37%, var(--light-grey) 37%);
 }
 
 a {
@@ -16,44 +25,4 @@ a {
 
 * {
   box-sizing: border-box;
-}
-
-.primary-color {
-  color: #fff
-}
-
-.secondary-color {
-  color : #800517
-}
-
-.Heading2Xl {
-  font-size: 2.5rem;
-  line-height: 1.2;
-  font-weight: 800;
-  letter-spacing: -0.05rem;
-}
-
-.HeadingXl {
-  font-size: 2rem;
-  line-height: 1.3;
-  font-weight: 800;
-  letter-spacing: -0.05rem;
-}
-
-.HeadingMd {
-  font-size: 1.2rem;
-  line-height: 1.5;
-}
-
-.button {
-  background-color: #fffbfb;
-  color: #800517;
-  padding: 0.8rem;
-  border: #800517 1px solid;
-  border-radius: 5px;
-  margin-right: 15px;
-}
-.button:hover {
-  background-color: #800517;
-  color: #fffbfb;
 }

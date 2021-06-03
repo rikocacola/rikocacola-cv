@@ -1,22 +1,37 @@
 import styles from './Projects.module.scss'
+import Image from 'next/image'
 
 import { projectsData } from '../../data'
 
 const Projects = () => {
     return (
-        <section className={styles.projectWrap}>
-            <h1 className={`${styles.title} Heading2Xl`}>Projects</h1>
-            <div className={styles.cardWrap}>
-                {
-                    projectsData.map((project, index) => (
-                        <div key={index} className={styles.card} style={{ backgroundImage: `url(${project.tech})` }}>
-                            <h2>{project.title}</h2>
-                            <p className="HeadingMd">{project.description}</p>
-                            <a href={project.link} className="button" target="_blank">SEE LIVE</a>
-                            <a href={project.source} className="button" target="_blank">SOURCE CODE</a>
+        <section className={styles['project-wrap']}>
+            <div className={styles['card-wrap']}>
+                {projectsData.map((project, index) => (
+                    <div key={index} className={styles['project-card']}>
+                        <a href={project.link} target="_blank" className={styles['project-image']}>
+                            <img src={project.image} />
+                            <span className={styles['cover-image']} />
+                        </a>
+                        <div className={styles['project-content']}>
+                            <h1>{project.title}</h1>
+                            <p className={styles['project-description']}>{project.description}</p>
+                            <div className={styles['tech-lists']} >
+                                {project.techLists.map((techList, idx) => (
+                                    <p key={idx}>{techList.name}</p>
+                                ))}
+                            </div>
+                            <div className={styles['project-links']}>
+                                <div className={`${styles.github} ${styles.logo}`}>
+                                    <a href={project.source} target="blank"></a>
+                                </div>
+                                <div className={`${styles['ext-link']} ${styles.logo}`}>
+                                    <a href={project.link} target="blank"></a>
+                                </div>
+                            </div>
                         </div>
-                    ))
-                }
+                    </div>
+                ))}
             </div>
         </section>
     )

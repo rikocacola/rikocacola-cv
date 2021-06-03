@@ -1,24 +1,131 @@
-.projectWrap{
-    width: 80%;
-    margin:auto;
-    padding-bottom: 54px;
-    // border-bottom: #800517 1px solid;
-    .title {
-        text-align: center;
-        margin-bottom: 2rem;
+.project-wrap {
+    padding: 100px 200px 0 200px;
+    min-height: 100vw;
+    display: flex;
+    justify-content: center;
+    // align-items: center;
+    .project-card {
+        display: flex;
+        flex-direction: row;
+        padding: 40px 0;
+        .project-image {
+            display: flex;
+            align-items: center;
+            width: 50%;
+            z-index: 0;
+            &:hover {
+                .cover-image {
+                    display: none;
+                }
+            }
+            img {
+                width: 36vw;
+                height: 22vw;
+                position: relative;
+                border-radius: 5px;
+            }
+            .cover-image {
+                width: 36vw;
+                height: 22vw;
+                position: absolute;
+                opacity: 0.4;
+                background-color: var(--sky-blue);
+                border-radius: 5px;
+            }
+        }
+        .project-content {
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            z-index: 1;
+            h1 {
+                font-size: 2vw;
+            }
+            .project-description {
+                background-color: var(--sky-blue);
+                letter-spacing: 1.5px;
+                padding: 30px;
+                font-size: 1.4vw;
+                border-radius: 5px;
+            }
+            .tech-lists {
+                display: flex;
+                justify-content: right;
+                font-size: 1.1vw;
+                font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
+                p {
+                    padding: 0 20px;
+                }
+            }
+            .project-links {
+                display: flex;
+                justify-content: right;
+                position: relative;
+                .logo {
+                    position: relative;
+                    top: 0;
+                    transition: top ease 0.3s;
+                    // padding: 0 20px;
+                    &:hover {
+                        top: -3px;
+                    }
+                }
+                .github {
+                    background: url("../../public/images/logo/github.svg") no-repeat center / contain;
+                }
+
+                .ext-link {
+                    background: url("../../public/images/icon/icon-ext-link.svg") no-repeat center / contain;
+                }
+
+                a {
+                    padding: 0 20px;
+                }
+            }
+        }
     }
-    .cardWrap{
-       .card {
-        padding: 20px 16px 40px 16px;
-        background: #fff;
-        margin: 20px 10px;
-        border-left: 8px solid #fff;
-        background-repeat: no-repeat;
-        background-size: 75px 75px;
-        background-position: 98% 10%;
-       }
-       .card:hover {
-           border-left: 8px solid #800517;
-       }
+}
+
+@media screen and (max-width: 1000px) {
+    .project-wrap {
+        .project-card {
+            .project-image {
+                display: none;
+            }
+            .project-content {
+                background-color: var(---sky-blue);
+                width: 100%;
+                padding: 20px;
+                justify-content: center;
+                text-align: left;
+                color: var(--light-grey);
+                .project-description {
+                    padding: 0;
+                    font-size: 14px;
+                    background-color: transparent;
+                }
+                .tech-lists{
+                    justify-content: left;
+                    p{
+                        padding-left: 0;
+                    }
+                }
+                .project-links {
+                    justify-content: left;
+                    padding-left: 0;
+                    .github{
+                        background-image: none;
+                        background-color: var(--light-grey);
+                        mask: url("../../public/images/logo/github.svg") no-repeat center / contain;
+                    }
+                    .ext-link{
+                        background-image: none;
+                        background-color: var(--light-grey);
+                        mask: url("../../public/images/icon/icon-ext-link.svg") no-repeat center / contain;
+                    }
+                }
+            }
+        }
     }
 }
