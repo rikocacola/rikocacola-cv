@@ -90,8 +90,21 @@
 @media screen and (max-width: 1000px) {
     .project-wrap {
         .project-card {
+            display: flex;
+            flex-direction: column;
             .project-image {
-                display: none;
+                // display: none;
+                justify-content: center;
+                padding: 20px 0;
+                width: 100%;
+                img {
+                    width: 68vw;
+                    height: 41vw;
+                }
+                .cover-image {
+                    width: 68vw;
+                    height: 41vw;
+                }
             }
             .project-content {
                 background-color: var(--sky-blue);
