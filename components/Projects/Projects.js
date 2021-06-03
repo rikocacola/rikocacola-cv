@@ -13,7 +13,7 @@ const Projects = () => {
                             <img src={project.image} />
                             <span className={styles['cover-image']} />
                         </a>
-                        <div className={styles['project-content']}>
+                        <div className={styles['project-content']} >
                             <h1>{project.title}</h1>
                             <p className={styles['project-description']}>{project.description}</p>
                             <div className={styles['tech-lists']} >
