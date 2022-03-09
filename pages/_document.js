@@ -7,7 +7,7 @@ export default function Document() {
       <Head>
         <meta name="description" content='Riko Chair Nugroho' />
         <meta name="title" content={meta_title} />
-        <meta name="image" property="og:image" content="https://www.flickr.com/photos/195235026@N08/shares/94U513"/>
+        <meta name="image" property="og:image" content="https://live.staticflickr.com/65535/51926901917_cd42fe4bf6_k.jpg"/>
         <link rel="icon" href="/rcn-icon.svg" />
         <link rel="preconnect" href="https://fonts.googleapis.com"/>
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
