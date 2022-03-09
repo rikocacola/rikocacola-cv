@@ -22,7 +22,7 @@ const Profile = () => {
                         <p>
                         I'm bachelor of Computer Science. I've experience with Javascript using ReactJS framework. I'm a person that has a desite to learn more in order to achieve either me or teams goals
                         </p>
-                        <a href="https://cutt.ly/8nprhml" target="_blank" className={styles['anchor']}>
+                        <a href="https://bit.ly/CV-Riko-9Maret2022" target="_blank" className={styles['anchor']}>
                             RESUME
                         </a>
                     </div>
