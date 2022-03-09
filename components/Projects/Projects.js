@@ -5,7 +5,8 @@ import { projectsData } from '../../data'
 
 const Projects = () => {
     return (
-        <section className={styles['project-wrap']}>
+        <div className={styles['project-wrap']}>
+            <div className={styles['title']}>projects</div>
             <div className={styles['card-wrap']}>
                 {projectsData.map((project, index) => (
                     <div key={index} className={styles['project-card']}>
@@ -14,8 +15,8 @@ const Projects = () => {
                             <span className={styles['cover-image']} />
                         </a>
                         <div className={styles['project-content']} >
-                            <h1>{project.title}</h1>
-                            <p className={styles['project-description']}>{project.description}</p>
+                            <div className={styles['project-name']}>{project.title}</div>
+                            <div className={styles['project-description']}>{project.description}</div>
                             <div className={styles['tech-lists']} >
                                 {project.techLists.map((techList, idx) => (
                                     <p key={idx}>{techList.name}</p>
@@ -33,7 +34,7 @@ const Projects = () => {
                     </div>
                 ))}
             </div>
-        </section>
+        </div>
     )
 }
 

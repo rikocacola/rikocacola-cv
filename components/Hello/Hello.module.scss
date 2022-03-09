@@ -1,0 +1,72 @@
+.hello-wrap{
+  height: calc(100vh - 72px);
+  margin-top: 72px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--light-green);
+  flex-direction: column;
+  padding: 50px;
+  .hello{
+    font-size: 48px;
+    .wave-emoji{
+      animation-duration: 2.5s;
+      animation-name: wave-animation;
+      animation-iteration-count: infinite;
+      transform-origin: 70% 70%;       /* Pivot around the bottom-left palm */
+      display: inline-block;
+    }
+  }
+  .my-name{
+    font-size: 36px;
+    text-align: center;
+    .name{
+      color: var(--dark-green);
+      font-weight: 700;
+    }
+  }
+  .know-more{
+    position: absolute;
+    text-align: center;
+    animation-duration: 2.5s;
+    animation-name: move-up-down;
+    animation-iteration-count: infinite;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .hello-wrap{
+    margin-top: 0;
+    margin-bottom: 72px;
+    .hello{
+      font-size: 24px;
+    }
+    .my-name{
+      font-size: 20px;
+      text-align: center;
+    }
+    .know-more{
+      font-size: 18px;
+    }
+  }
+}
+
+@keyframes wave-animation {
+  0% { transform: rotate( 0.0deg) }
+ 10% { transform: rotate(14.0deg) }  /* The following five values can be played with to make the waving more or less extreme */
+ 20% { transform: rotate(-8.0deg) }
+ 30% { transform: rotate(14.0deg) }
+ 40% { transform: rotate(-4.0deg) }
+ 50% { transform: rotate(10.0deg) }
+ 60% { transform: rotate( 0.0deg) }  /* Reset for the last half to pause */
+100% { transform: rotate( 0.0deg) }
+}
+
+@keyframes move-up-down {
+  0%, 100% {
+    bottom: 2vh;
+  }
+  50% {
+    bottom: 5vh;
+  }
+}

@@ -1,13 +1,21 @@
 .project-wrap {
     padding: 7vw 10vw 0 10vw;
-    min-height: 100vw;
-    display: flex;
+    // display: flex;
     justify-content: center;
+    color: var(--light-green);
+    text-align: center;
+    // min-height: 100vw;
     // align-items: center;
+    .title{
+        font-size: 48px;
+        margin-bottom: 25px;
+    }
     .project-card {
         display: flex;
         flex-direction: row;
         padding: 40px 0;
+        justify-content: center;
+        align-items: center;
         .project-image {
             display: flex;
             align-items: center;
@@ -19,17 +27,17 @@
                 }
             }
             img {
-                width: 36vw;
-                height: 22vw;
+                width: 640px;
+                height: 360px;
                 position: relative;
                 border-radius: 5px;
             }
             .cover-image {
-                width: 36vw;
-                height: 22vw;
+                width: 640px;
+                height: 360px;
                 position: absolute;
                 opacity: 0.4;
-                background-color: var(--sky-blue);
+                background-color: var(--navy-blue);
                 border-radius: 5px;
             }
         }
@@ -39,20 +47,20 @@
             flex-direction: column;
             width: 50%;
             z-index: 1;
-            h1 {
-                font-size: 2vw;
+            .project-name {
+                font-size: 36px;
             }
             .project-description {
-                background-color: var(--sky-blue);
                 letter-spacing: 1.5px;
                 padding: 30px;
-                font-size: 1.4vw;
+                font-size: 20px;
                 border-radius: 5px;
+                border: var(--light-green) 1px solid;
             }
             .tech-lists {
                 display: flex;
                 justify-content: right;
-                font-size: 1.1vw;
+                font-size: 18px;
                 font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
                 p {
                     padding: 0 20px;
@@ -66,17 +74,17 @@
                     position: relative;
                     top: 0;
                     transition: top ease 0.3s;
-                    // padding: 0 20px;
+                    margin: 0 5px;
                     &:hover {
                         top: -3px;
                     }
                 }
                 .github {
-                    background: url("../../public/images/logo/github.svg") no-repeat center / contain;
+                    background: url("../../public/images/logo/github-light-green.svg") no-repeat center / contain;
                 }
 
                 .ext-link {
-                    background: url("../../public/images/icon/icon-ext-link.svg") no-repeat center / contain;
+                    background: url("../../public/images/icon/icon-ext-link-light-green.svg") no-repeat center / contain;
                 }
 
                 a {
@@ -87,8 +95,108 @@
     }
 }
 
-@media screen and (max-width: 1000px) {
+@media only screen and (min-width: 1200px) {
     .project-wrap {
+        .title{
+            font-size: 40px;
+        }
+        .project-card {
+            .project-image {
+                img {
+                    width: 480px;
+                    height: 270px;
+                    position: relative;
+                    border-radius: 5px;
+                }
+                .cover-image {
+                    width: 600px;
+                    height: 337.5px;
+                    position: absolute;
+                    opacity: 0.4;
+                    background-color: var(--navy-blue);
+                    border-radius: 5px;
+                }
+            }
+            .project-content {
+                .project-name {
+                }
+                .project-description {
+                }
+                .tech-lists {
+                    p {
+                    }
+                }
+                .project-links {
+                    .logo {
+                    }
+                    .github {
+                        background: url("../../public/images/logo/github-light-green.svg") no-repeat center / contain;
+                    }
+    
+                    .ext-link {
+                        background: url("../../public/images/icon/icon-ext-link-light-green.svg") no-repeat center / contain;
+                    }
+    
+                    a {
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 1720px) {
+    .project-wrap {
+        .project-card {
+            .project-image {
+                img {
+                    width: 600px;
+                    height: 337.5px;
+                    position: relative;
+                    border-radius: 5px;
+                }
+                .cover-image {
+                    width: 600px;
+                    height: 337.5px;
+                    position: absolute;
+                    opacity: 0.4;
+                    background-color: var(--navy-blue);
+                    border-radius: 5px;
+                }
+            }
+            .project-content {
+                .project-name {
+                }
+                .project-description {
+                }
+                .tech-lists {
+                    p {
+                    }
+                }
+                .project-links {
+                    .logo {
+                    }
+                    .github {
+                        background: url("../../public/images/logo/github-light-green.svg") no-repeat center / contain;
+                    }
+    
+                    .ext-link {
+                        background: url("../../public/images/icon/icon-ext-link-light-green.svg") no-repeat center / contain;
+                    }
+    
+                    a {
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .project-wrap {
+        .title{
+            font-size: 30px;
+        }
         .project-card {
             display: flex;
             flex-direction: column;
@@ -97,29 +205,32 @@
                 justify-content: center;
                 padding: 20px 0;
                 width: 100%;
+                margin-bottom: 30px;
                 img {
-                    width: 68vw;
-                    height: 41vw;
+                    width: 768px;
+                    height: 432px;
                 }
                 .cover-image {
-                    width: 68vw;
-                    height: 41vw;
+                    width: 768px;
+                    height: 432px;
                 }
             }
             .project-content {
-                background-color: var(--sky-blue);
                 border-radius: 5px;
-                width: 100%;
-                padding: 20px;
+                width: 768px;
                 justify-content: center;
                 text-align: left;
-                color: var(--light-grey);
+                color: var(--light-green);
+                .project-name{
+                    font-size: 24px;
+                    margin-bottom: 10px;
+                }
                 .project-description {
-                    padding: 0;
-                    font-size: 14px;
+                    font-size: 18px;
                     background-color: transparent;
                 }
                 .tech-lists{
+                    font-size: 16px;
                     justify-content: left;
                     p{
                         padding-left: 0;
@@ -129,15 +240,89 @@
                     justify-content: left;
                     padding-left: 0;
                     .github{
-                        background-image: none;
                         background-color: var(--light-grey);
-                        mask: url("../../public/images/logo/github.svg") no-repeat center / contain;
+                        mask: url("../../public/images/logo/github-light-green.svg") no-repeat center / contain;
                     }
                     .ext-link{
-                        background-image: none;
                         background-color: var(--light-grey);
-                        mask: url("../../public/images/icon/icon-ext-link.svg") no-repeat center / contain;
+                        mask: url("../../public/images/icon/icon-ext-link-light-green.svg") no-repeat center / contain;
                     }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .project-wrap {
+        padding-top: 100px;
+        .title{
+            font-size: 28px;
+        }
+        .project-card {
+            .project-image {
+                img {
+                    width: 640px;
+                    height: 360px;
+                }
+                .cover-image {
+                    width: 640px;
+                    height: 360px;
+                }
+            }
+            .project-content {
+                width: 640px;
+                .project-description{
+                    margin-bottom: 10px;
+                    letter-spacing: 1px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .project-wrap {
+        .title{
+            font-size: 24px;
+            margin-bottom: 0;
+        }
+        .project-card {
+            padding: 20px 0;
+            .project-image {
+                img {
+                    width: 480px;
+                    height: 270px;
+                }
+                .cover-image {
+                    width: 480px;
+                    height: 270px;
+                }
+            }
+            .project-content {
+                width: 480px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .project-wrap {
+        .project-card {
+            .project-image {
+                img {
+                    width: 320px;
+                    height: 180px;
+                }
+                .cover-image {
+                    width: 320px;
+                    height: 180px;
+                }
+            }
+            .project-content {
+                width: 320px;
+                .tech-lists{
+                    flex-flow: wrap;
                 }
             }
         }

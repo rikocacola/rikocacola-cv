@@ -2,24 +2,19 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--light-grey);
     position: relative;
     bottom: 0;
-    box-shadow: 0 5px 6px rgba(0, 0, 0, 0.5);
+    border-top: var(--light-green) 1px solid;
     padding: 20px 100px;
     text-align: center;
+    margin-top: 30px;
+    color: var(--light-green);
     .source{
         p {
             letter-spacing: 1px;
-            font-size: 1.6vw;
-            a{
-                position: relative;
-                top: 0;
-                transition: top ease 0.2s;
-            }
+            font-size: 20px;
             a:hover {
-                top: -3px;
-                color: var(--dark-sky-blue);
+                color: var(--dark-green);
             }
         }
     }
@@ -28,24 +23,12 @@
         text-align: center;
         display: flex;
         p{
-            padding: 0 25px;
-            font-size: 1.6vw;
-        }
-        .email{
-            a{
-                position: relative;
-                top: 0;
-                transition: top ease 0.2s;
-            }
-            a:hover {
-                color: var(--dark-sky-blue);
-                top: -3px;
-            }
+            padding: 0 30px;
         }
         .social-media{
             img{
-                width: 20px;
-                height: 20px;
+                width: 30px;
+                height: 30px;
                 position: relative;
                 top: 0;
                 transition: top ease 0.2s;
@@ -68,26 +51,28 @@
         padding: 20px 20px;
         .source{
             p {
-                font-size: 3vw;
+                font-size: 18px;
             }
         }
         .contact{
             display: flex;
             flex-flow: row wrap;
             p{
-                font-size: 3vw;
+                font-size: 18px;
             }
             .phone{
                 order: 1;
-                width: 50%;
             }
             .email{
                 order: 2;
-                width: 50%;
             }
             .social-media{
                 order: 3;
                 width: 100%;
+                img {
+                    width: 30px;
+                    height: 30px;
+                }
             }
         }
     }

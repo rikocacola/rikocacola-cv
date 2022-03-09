@@ -1,21 +1,25 @@
 :root{
-  --sky-blue: #99c8dc;
-  --dark-sky-blue : #6fa6bd;
-  --light-grey: #efefef;
-  --brown: #988879;
+  /* --sky-blue: #99c8dc;
+  --dark-sky-blue : #6fa6bd; */
+  /* --light-grey: #efefef;
+  --brown: #988879; */
+  --navy-blue: #2f455c;
+  --sky-blue: #1dcdfe;
+  --light-green: #34f5c5;
+  --dark-green: #21d0b2;
 }
 
 html {
   scroll-snap-type: y;
+  scroll-behavior: smooth;
 }
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Kumbh Sans', sans-serif;
   line-height: 1.6;
   font-size: 18px;
-  background: linear-gradient(90deg, var(--dark-sky-blue) 37%, var(--light-grey) 37%);
+  background: var(--navy-blue);
 }
 
 a {

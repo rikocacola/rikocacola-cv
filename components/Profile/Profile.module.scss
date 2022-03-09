@@ -1,136 +1,142 @@
 .profile-wrap {
-    background: var(--dark-sky-blue);
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vw;
-    .profile-card {
-        width: calc(100% - 100px);
-        padding-top: 100px;
-        padding-bottom: 100px;
-        .section-one {
-            background-color: var(--sky-blue);
-            text-align: center;
-            .body-section-one {
-                padding: 30px 10px;
-                .image {
-                    border-radius: 50%;
-                }
-                h1 {
-                    font-size: 30px;
-                }
-                hr {
-                    width: 40px;
-                    border: 1px solid blue;
-                }
-                p {
-                    letter-spacing: 1px;
-                    font-size: 16px;
-                }
-                a {
-                    font-size: 14px;
-                    letter-spacing: 1px;
-                    background-color: blue;
-                    color: white;
-                    border: none;
-                    margin-top: 10px;
-                    padding: 10px 30px;
-                    border-radius: 999px;
-                    &:hover {
-                        background-color: white;
-                        color: blue;
-                        // border: 1px solid blue;
-                        cursor: pointer;
-                        font-weight: bold;
-                    }
-                }
-            }
-            .footer-section-one {
-                border-bottom: 10px solid var(--sky-blue);
-                background-color: var(--light-grey);
-                padding: 5px 0;
-                a {
-                    position: relative;
-                    top: 0;
-                    transition: top ease 0.3s;
-                    padding: 0 8px;
-                    :hover {
-                        top: -3px;
-                    }
-                }
-            }
+    height: 100vh;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 50px;
+    .content-wrap{
+        color: var(--light-green);
+        text-align: center;
+        .title{
+            font-size: 48px;
+            margin-bottom: 25px;
         }
-        .section-two {
-            background-color: var(--light-grey);
-            padding: 30px;
-            border-color: var(--sky-blue);
-            border-style: solid;
-            border-width: 5px 0;
-            h1 {
-                margin: 0;
+        .details{
+            display: flex;
+            .flip-card{
+                background-color: transparent;
+                min-width: 300px;
+                max-width: 300px;
+                height: 300px;
+                perspective: 1000px;
+                margin-right: 50px;
+                cursor: pointer;
+                .flip-card-inner{
+                    position: relative;
+                    width: 100%;
+                    height: 100%;
+                    transition: transform 0.8s;
+                    transform-style: preserve-3d;
+                    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+                    border-radius: 50%;
+                    border: solid 3px var(--light-green);
+                    .front{
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        -webkit-backface-visibility: hidden; /* Safari */
+                        backface-visibility: hidden;
+                        border-radius: 50%;
+                        // z-index: 2;
+                    }
+                    .back{
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        -webkit-backface-visibility: hidden; /* Safari */
+                        backface-visibility: hidden;
+                        transform: rotateY(180deg);
+                        // z-index: 1;
+                        border-radius: 50%;
+                        img{
+                            border-radius: 50%;
+                        }
+                    }
+                }
+                &:hover {
+                    .flip-card-inner{
+                        transform: rotateY(180deg);
+                    }
+                }
+                &:focus {
+                    outline: 0;
+                    .flip-card-inner{
+                        transform: rotateY(180deg);
+                    }
+                }
             }
-            p {
-                font-size: 20px;
-                line-height: 1.5;
-                letter-spacing: 0.9px;
+            .paragraph{
+                font-size: 24px;
+                text-align: left;
+
+                p{
+                    margin-bottom: 50px;
+                }
+
+                .anchor{
+                    padding: 10px 25px;
+                    border: var(--light-green) 1px solid;
+                    border-radius: 99px;
+                    font-size: 20px;
+                    &:hover{
+                        border: none;
+                        background: var(--light-green);
+                        color: var(--navy-blue);
+                    }
+                }
             }
         }
     }
 }
 
-@media (min-width: 961px) {
-    .profile-wrap {
-        min-height: 100vh;
-        background: linear-gradient(90deg, var(--dark-sky-blue) 37%, var(--light-grey) 37%);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        .profile-card {
-            display: flex;
-            width: 800px;
-            .section-one {
-                width: 50%;
-                text-align: center;
-                background-color: var(--sky-blue);
-                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-                .body-section-one {
-                    padding: 35px 10px;
-                    height: 90%;
-                    .image {
-                        border-radius: 50%;
-                    }
-                    h1 {
-                        font-size: 30px;
-                    }
-                    hr {
-                        width: 40px;
-                        border: 1px solid blue;
-                    }
-                    p {
-                        letter-spacing: 2px;
+
+@media only screen and (max-width: 600px) {
+    .profile-wrap{
+        padding: 0 50px;
+        padding-top: 10px;
+        .content-wrap{
+            .title{
+                font-size: 24px;
+            }
+            .details{
+                flex-direction: column;
+                align-items: center;
+                .flip-card{
+                    height: 150px;
+                    min-width: 150px;
+                    max-width: 150px;
+                    margin-right: 0;
+                    margin-bottom: 20px;
+                }
+                .paragraph{
+                    font-size: 18px;
+                    .anchor{
                         font-size: 16px;
                     }
                 }
-                .footer-section-one {
-                    background-color: var(--light-grey);
-                    height: 10%;
-                    padding: 10px 0;
-                    border: none;
-                    a {
-                        padding: 0 8px;
-                    }
-                }
-            }
-            .section-two {
-                width: 50%;
-                margin-left: 30px;
-                margin-top: 10px;
-                border: none;
-                // background-color: var(--dark-sky-blue);
             }
         }
     }
-}
-
-@media (max-width: 540px) {
-}
+  }
+  
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+  @media only screen and (min-width: 600px) {
+    .example {background: green;}
+  }
+  
+  /* Medium devices (landscape tablets, 768px and up) */
+  @media only screen and (min-width: 768px) {
+    .example {background: blue;}
+  } 
+  
+  /* Large devices (laptops/desktops, 992px and up) */
+  @media only screen and (min-width: 992px) {
+    .example {background: orange;}
+  } 
+  
+  /* Extra large devices (large laptops and desktops, 1200px and up) */
+  @media only screen and (min-width: 1200px) {
+    .example {background: pink;}
+  }

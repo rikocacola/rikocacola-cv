@@ -1,26 +1,17 @@
-import SkillsCard from '../Global/SkillsCard/SkillsCard'
 import styles from './Skills.module.scss'
+import { skillsData } from '../../data'
 
 const Skills = () => {
     return (
-        <section className={styles['skills-wrap']}>
-            <h1>Skills</h1>
-            <SkillsCard/>
-        </section>
-        // <section className={styles.wrap}>
-        //     <h1 className={`${styles.title} Heading2Xl`}>Skills</h1>
-        //     <div className={styles.cardWrap}>
-        //         {
-        //             skillsData.map((skill, index) => (
-        //                 <div key={index} className={styles.card}>
-        //                     <Image src={`${skill.imgURL}`} width={100} height={100} />
-        //                     <p className={skill.title}>{skill.title}</p>
-        //                 </div>
-        //             ))
-        //         }
-        //     </div>
-        // </section>
+        <div className={styles['skills-wrap']}>
+            {skillsData.map((skill, index) => (
+                <div key={index} className={styles['skills-card']}>
+                    <img src={skill.imgURL} className={styles['skill-image']} />
+                    <p>{skill.title}</p>
+                </div>
+            ))}
+        </div>
     )
 }
 
-export default Skills;
+export default Skills

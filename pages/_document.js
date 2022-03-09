@@ -1,0 +1,22 @@
+import { Html, Head, Main, NextScript } from 'next/document'
+
+export default function Document() {
+  const meta_title = 'Riko Chair | Frontend Developer'
+  return (
+    <Html>
+      <Head>
+        <meta name="description" content='Riko Chair Nugroho' />
+        <meta name="title" content={meta_title} />
+        <meta name="image" property="og:image" content="https://www.flickr.com/photos/195235026@N08/shares/94U513"/>
+        <link rel="icon" href="/rcn-icon.svg" />
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+        <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100;200;300;500;600;700&display=swap" rel="stylesheet"/> 
+      </Head>
+      <body>
+        <Main />
+        <NextScript />
+      </body>
+    </Html>
+  )
+}

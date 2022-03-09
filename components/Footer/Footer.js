@@ -6,7 +6,7 @@ const Footer = () => {
     return (
         <footer className={styles['footer-wrap']}>
             <div className={styles['source']}>
-                <p><a href="https://github.com/rikocacola/rikocacola-cv" target='_blank'>©2021 by Riko Chair Nugroho.</a></p>
+                <p><a href="https://github.com/rikocacola/rikocacola-cv" target='_blank'>©2022 by Riko Chair Nugroho.</a></p>
             </div>
             <div className={styles['contact']}>
                 <div className={styles.phone}>
@@ -20,10 +20,10 @@ const Footer = () => {
                 <div className={styles['social-media']}>
                     <p><strong>Follow</strong></p>
                     <a href="https://linkedin.com/in/rikocacola" target="_blank" style={{ paddingRight: "30px" }}>
-                        <img src="/images/logo/linkedin.svg"/>
+                        <img src="/images/logo/linkedin-light-green.svg"/>
                     </a>
                     <a href="https://github.com/rikocacola" target="_blank">
-                        <img src="/images/logo/github.svg"/>
+                        <img src="/images/logo/github-light-green.svg"/>
                     </a>
                 </div>
             </div>
