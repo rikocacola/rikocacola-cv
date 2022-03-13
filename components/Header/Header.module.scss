@@ -50,6 +50,10 @@
                     &:hover {
                         color: var(--dark-green);
                     }
+                    
+                }
+                .active{
+                    color: red;
                 }
             }
         }

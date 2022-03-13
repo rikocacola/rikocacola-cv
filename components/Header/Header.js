@@ -1,6 +1,7 @@
 import styles from './Header.module.scss'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 // import {PREFIX_IMAGE} from '../../utils/constant'
 
 import {useState} from 'react'
@@ -8,6 +9,8 @@ import {useState} from 'react'
 const Navbar = () => {
     // const profileScroll = () => props.profileRef.current.scrollIntoView();
     const [showNavbar, setShowNavbar] = useState(false);
+    const router = useRouter();
+    console.log(router.asPath)
     return (
         <>
             <header className={styles['header']}>
@@ -27,7 +30,13 @@ const Navbar = () => {
                     </button>
                     <div className={`${styles['navbar-links']} ${showNavbar ? styles['show'] : ''}` } >
                         <ul>
-                            <li><Link href="#profile"><a>about me</a></Link></li>
+                            <li className={router.asPath == "/" ? "active" : ""}>
+                                <Link href="#profile">
+                                    <a>
+                                        about me
+                                    </a>
+                                </Link>
+                            </li>
                             <li><Link href="#skills"><a>skills</a></Link></li>
                             <li><Link href="#projects"><a>projects</a></Link></li>
                         </ul>

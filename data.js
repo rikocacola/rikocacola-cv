@@ -1,11 +1,27 @@
 export const skillsData = [
     {
+        imgURL: "/images/logo/icon-html.png",
+        title: "HTML"
+    },
+    {
+        imgURL: "/images/logo/icon-css.png",
+        title: "CSS"
+    },
+    {
+        imgURL: "/images/logo/icon-javascript.png",
+        title: "Javascript"
+    },
+    {
         imgURL: "/images/logo/icon-react.png",
         title: "ReactJS"
     },
     {
         imgURL: "/images/logo/icon-next.png",
         title: "NextJS"
+    },
+    {
+        imgURL: "/images/logo/icon-jquery.png",
+        title: "jQuery"
     },
     {
         imgURL: "/images/logo/icon-vue.png",
@@ -18,18 +34,6 @@ export const skillsData = [
     {
         imgURL: "/images/logo/icon-git.png",
         title: "git"
-    },
-    {
-        imgURL: "/images/logo/icon-html.png",
-        title: "HTML"
-    },
-    {
-        imgURL: "/images/logo/icon-css.png",
-        title: "CSS"
-    },
-    {
-        imgURL: "/images/logo/icon-javascript.png",
-        title: "Javascript"
     }
 ];
 
