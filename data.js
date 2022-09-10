@@ -38,27 +38,6 @@ export const skillsData = [
 ];
 
 export const projectsData = [
-     {
-        title: "Mowto",
-        description: "Mowto is an application that I build for my girlfriend to save our moments",
-        image: "/images/projects/mowto.png",
-        link: "https://rikoconatt.netlify.app/",
-        source: "https://github.com/rikocacola/movie-db",
-        techLists: [
-            {
-                name: "MongoDB"
-            },
-            {
-                name: "ExpressJS"
-            },
-            {
-                name: "ReactJS"
-            },
-            {
-                name: "NodeJS"
-            }
-        ]
-    },
     {
         title: "Movie DB",
         description: "Movie DB is a web application to search movie and the details about the movie like Actors, Writers, Plot, and etc.",
@@ -90,3 +69,25 @@ export const projectsData = [
         ]
     }
 ];
+
+export const worksData = [
+    {
+        companyName: "Technology Innovation Labs",
+        title: "Frontend Developer",
+        startDate: "June 2021",
+        endDate: "Mei 2022",
+        responsibility: [
+            "Create and Modify Odoo Module for Sister Company",
+            "Create Website for External Client"
+        ]
+    },
+    {
+        companyName: "Vlink ",
+        placement: "Astra Internation",
+        startDate: "Mei 2022",
+        endDate: "Present",
+        responsibility: [
+            "Develop Astra International Sales Operation Website"
+        ]
+    }
+]
