@@ -7,6 +7,7 @@ import Projects from '../components/Projects/Projects';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 import Hello from '../components/Hello/Hello';
+import Experience from '../components/Experience/Experience';
 
 const Home = () => {
   const meta_title = 'Riko Chair | Frontend Developer'
@@ -28,6 +29,9 @@ const Home = () => {
       </section>
       <section id="projects">
         <Projects/>
+      </section>
+      <section id="experiences">
+        <Experience/>
       </section>
       <Footer />
     </>

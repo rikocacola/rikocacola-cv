@@ -79,15 +79,18 @@ export const worksData = [
         responsibility: [
             "Create and Modify Odoo Module for Sister Company",
             "Create Website for External Client"
-        ]
+        ],
+        image: "/images/company/tilabs.jpg"
     },
     {
-        companyName: "Vlink ",
-        placement: "Astra Internation",
+        companyName: "Vlink Consulting Indonesia",
+        title: "Frontend Developer",
+        placement: "Astra International",
         startDate: "Mei 2022",
         endDate: "Present",
         responsibility: [
             "Develop Astra International Sales Operation Website"
-        ]
+        ],
+        image: "/images/company/vlink.jpg"
     }
 ]

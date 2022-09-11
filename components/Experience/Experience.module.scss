@@ -1,0 +1,194 @@
+.experience-wrap {
+    padding: 7vw 10vw 0 10vw;
+    // display: flex;
+    justify-content: center;
+    color: var(--light-green);
+    text-align: center;
+    min-height: calc(100vh - 72px);
+
+    // align-items: center;
+    .title {
+        font-size: 48px;
+        margin-bottom: 25px;
+    }
+
+    .experiences {
+        .experience {
+            padding-top: 10px;
+            display: flex;
+
+            .first {
+                width: 45%;
+                text-align: right;
+
+                .company-name {
+                    font-size: 22px;
+                }
+
+                .placement-name {
+                    font-size: 18px;
+                }
+
+                .job-title {
+                    font-size: 18px;
+                }
+            }
+
+            .second {
+                width: 10%;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+
+                img {
+                    width: 50%;
+                    border-radius: 99px;
+                    border: 3px solid var(--light-green);
+                    margin-bottom: 10px;
+                }
+
+                .line {
+                    width: 2px;
+                    background-color: var(--light-green);
+                    height: 100%;
+                }
+            }
+
+            .third {
+                width: 45%;
+                text-align: left;
+                font-size: 18px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .experience-wrap {
+        padding-top: 100px;
+
+        .title {
+            font-size: 28px;
+        }
+
+        .experiences {
+            .experience {
+                .first {
+                    width: 40%;
+
+                    .company-name {
+                        font-size: 18px;
+                    }
+
+                    .placement-name {
+                        font-size: 14px;
+                    }
+
+                    .job-title {
+                        font-size: 14px;
+                    }
+                }
+
+                .second {
+                    width: 20%;
+                }
+
+                .third {
+                    width: 40%;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .experience-wrap {
+        .title {
+            font-size: 24px;
+            margin-bottom: 0;
+        }
+
+        .experiences {
+            .experience {
+                .first {
+                    width: 40%;
+
+                    .company-name {
+                        font-size: 18px;
+                    }
+
+                    .placement-name {
+                        font-size: 14px;
+                    }
+
+                    .job-title {
+                        font-size: 14px;
+                    }
+                }
+
+                .second {
+                    width: 20%;
+                }
+
+                .third {
+                    width: 40%;
+                    font-size: 14px;
+                }
+            }
+        }
+
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .experience-wrap {
+        .title {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .experiences {
+            .experience {
+                flex-direction: column;
+                margin-bottom: 20px;
+                .first {
+                    width: 100%;
+                    text-align: left;
+                    order: 2;
+
+                    .company-name {
+                        font-size: 18px;
+                    }
+
+                    .placement-name {
+                        font-size: 14px;
+                    }
+
+                    .job-title {
+                        font-size: 14px;
+                    }
+                }
+
+                .second {
+                    order: 1;
+                    width: 100%;
+                    align-items: initial;
+                    img{
+                        width: 60px;
+                    }
+                    .line{
+                        display: none;
+                    }
+                }
+
+                .third {
+                    width: 100%;
+                    font-size: 14px;
+                    order: 3;
+                }
+            }
+        }
+
+    }
+}
