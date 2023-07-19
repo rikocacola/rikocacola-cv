@@ -1,6 +1,3 @@
-import { useRef } from 'react'
-
-// import Layout from '../components/Layout'
 import Profile from '../components/Profile/Profile';
 import Skills from '../components/Skills/Skills';
 import Projects from '../components/Projects/Projects';
@@ -11,10 +8,6 @@ import Experience from '../components/Experience/Experience';
 
 const Home = () => {
   const meta_title = 'Riko Chair | Frontend Developer'
-  // const profileRef = useRef(null);
-  // const skillRef = useRef(null);
-  // const projectRef = useRef(null);
-  // const 
   return (
     <>
       <Header/>
