@@ -4,7 +4,7 @@ import Script from "next/script";
 
 function MyApp({ Component, pageProps }) {
   const meta_title = "Riko Chair | Frontend Developer";
-  console.log(process.env.GA_MEASUREMENT_ID);
+
   return (
     <>
       <Head>
@@ -18,7 +18,7 @@ function MyApp({ Component, pageProps }) {
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
  
-          gtag('config', 'G-WK6H17XB1W);
+          gtag('config', 'G-WK6H17XB1W');
         `}
         </Script>
         {/* <Script id="google-tag-manager" strategy="afterInteractive">
