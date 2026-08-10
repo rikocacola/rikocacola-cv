@@ -55,6 +55,12 @@ prefer a local asset.
 **npm only.** If a tool tries to install with pnpm or yarn, delete the stray
 lockfile and re-run `npm install`. Two lockfiles is a broken tree.
 
+**Keep the image runnable.** If you add a file the server needs at runtime,
+check it survives into `.next/standalone` — the Dockerfile only copies
+`public/`, `.next/standalone`, and `.next/static`. New env vars that the
+browser reads must be `NEXT_PUBLIC_*` **and** wired through as a Docker
+`ARG`/`ENV` in the builder stage, because they're inlined at build time.
+
 ## Adding to the UI
 
 Reach for `common/` first — `Panel`, `SectionHeader`, `StatItem`, `Chip`,

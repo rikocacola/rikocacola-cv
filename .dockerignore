@@ -1,0 +1,30 @@
+# Keep the build context small and avoid leaking local state into the image.
+
+# Dependencies and build output are produced inside the image, never copied in.
+node_modules
+.next
+out
+build
+coverage
+
+# VCS and CI
+.git
+.gitignore
+.github
+
+# Local tooling / editor state
+.claude
+.vscode
+.idea
+*.tsbuildinfo
+
+# Secrets — belt and braces; these should never be committed either.
+.env
+.env.*
+
+# Docs and local-only files add nothing to the runtime image.
+*.md
+Dockerfile
+.dockerignore
+npm-debug.log*
+.DS_Store

@@ -117,6 +117,30 @@ those without re-checking contrast.
 - No `dangerouslySetInnerHTML` anywhere. Keep it that way.
 - External links carry `rel="noreferrer noopener"`.
 
+## Build and deploy
+
+`next.config.ts` sets `output: "standalone"`, so `npm run build` emits
+`.next/standalone/server.js` with only the traced dependencies. The Dockerfile
+copies three things into the runtime stage — `public/`, `.next/standalone`, and
+`.next/static` — and runs `node server.js` as an unprivileged user. There is no
+`next start` in the image.
+
+`GET /api/health` is the one dynamic route; everything else is prerendered. It
+backs the container `HEALTHCHECK` and any orchestrator probe.
+
+**`NEXT_PUBLIC_*` values are inlined at build time.** `NEXT_PUBLIC_SITE_URL`
+(used by `metadataBase`) is a Docker `ARG`, not a runtime env var — setting it
+at `docker run` does nothing. In CI it comes from the `SITE_URL` repository
+variable. The fallback uses `||` rather than `??` on purpose: an empty string
+must fall back too, since `new URL("")` throws.
+
+CI lives in `.github/workflows/`. `ci.yml` typechecks, lints, builds, audits,
+and builds the image and smoke-tests it. `publish.yml` pushes to
+`ghcr.io/rikocacola/rikocacola-cv` on `main` and `v*` tags, authenticating with
+the run-scoped `GITHUB_TOKEN` (no PAT) and attaching a signed provenance
+attestation. Images are amd64 only; arm64 needs `docker/setup-qemu-action` and
+costs a lot of build time under emulation.
+
 ## Current scope
 
 Static and hardcoded. No backend, no auth, no database, no analytics. Charts

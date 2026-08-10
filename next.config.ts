@@ -43,6 +43,10 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  // Emits .next/standalone with a self-contained server.js and only the
+  // node_modules actually traced as reachable. This is what the Docker
+  // runtime stage copies, and it's why the final image stays small.
+  output: "standalone",
   reactStrictMode: true,
   // Don't advertise the framework version to attackers.
   poweredByHeader: false,

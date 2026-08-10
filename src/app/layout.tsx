@@ -16,9 +16,11 @@ const kumbhSans = Kumbh_Sans({
 });
 
 export const metadata: Metadata = {
-  // Resolves relative OG/icon URLs. Set NEXT_PUBLIC_SITE_URL in the deploy env.
+  // Resolves relative OG/icon URLs. Set NEXT_PUBLIC_SITE_URL at build time.
+  // `||`, not `??`: an env var set to an empty string must fall back too,
+  // because `new URL("")` throws.
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+    process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
   ),
   title: {
     default: "Riko Chair Nugroho — Frontend Developer",

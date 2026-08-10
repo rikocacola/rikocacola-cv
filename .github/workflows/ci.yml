@@ -1,0 +1,95 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+# Read-only by default; the publish workflow asks for more where it needs it.
+permissions:
+  contents: read
+
+# A newer push to the same ref makes the in-flight run obsolete.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: Typecheck, lint, build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+
+      # ci, not install: fails if package-lock.json and package.json disagree.
+      - run: npm ci
+
+      - name: Typecheck
+        run: npx tsc --noEmit
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Build
+        run: npm run build
+
+  audit:
+    name: Dependency audit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      # Separate job so a newly-published advisory reports as an audit failure
+      # rather than making it look like the code broke.
+      - name: Audit dependencies
+        run: npm audit --audit-level=high
+
+  docker:
+    name: Build image
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: docker/setup-buildx-action@v4
+
+      # Build only — this proves the Dockerfile still works without
+      # publishing anything from an unmerged branch.
+      - uses: docker/build-push-action@v7
+        with:
+          context: .
+          push: false
+          load: true
+          tags: rikocacola-cv:ci
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Smoke test the image
+        run: |
+          docker run -d --name cv -p 3000:3000 rikocacola-cv:ci
+          for i in $(seq 1 30); do
+            if curl -fsS http://localhost:3000/api/health > /dev/null; then
+              echo "Health check passed"
+              curl -fsS -o /dev/null -w 'dashboard: HTTP %{http_code}\n' \
+                http://localhost:3000/dashboard
+              docker rm -f cv
+              exit 0
+            fi
+            sleep 2
+          done
+          echo "Container did not become healthy in time" >&2
+          docker logs cv
+          docker rm -f cv
+          exit 1

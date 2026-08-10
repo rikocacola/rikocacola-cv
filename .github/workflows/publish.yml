@@ -1,0 +1,98 @@
+name: Publish image
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  workflow_dispatch:
+
+concurrency:
+  group: publish-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  REGISTRY: ghcr.io
+  # Resolves to rikocacola/rikocacola-cv. GHCR requires a lowercase path,
+  # which this repository name already satisfies.
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  publish:
+    name: Build and push to GHCR
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      # Push to GitHub Container Registry.
+      packages: write
+      # Sign the build provenance attestation.
+      id-token: write
+      attestations: write
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: docker/setup-buildx-action@v4
+
+      # GITHUB_TOKEN is scoped to this repo and expires with the run — no PAT
+      # to store or rotate.
+      - name: Log in to GHCR
+        uses: docker/login-action@v4
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Derive tags and labels
+        id: meta
+        uses: docker/metadata-action@v6
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=ref,event=branch
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=sha,format=long
+            type=raw,value=latest,enable={{is_default_branch}}
+          labels: |
+            org.opencontainers.image.title=rikocacola-cv
+            org.opencontainers.image.description=Profile dashboard for Riko Chair Nugroho
+
+      - name: Build and push
+        id: build
+        uses: docker/build-push-action@v7
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          # Inlined into the client bundle at build time. Set the SITE_URL
+          # repository variable to the deployed origin; unset is harmless.
+          build-args: |
+            NEXT_PUBLIC_SITE_URL=${{ vars.SITE_URL }}
+          # amd64 only. Adding linux/arm64 here needs docker/setup-qemu-action
+          # above, and the emulated Next build takes substantially longer.
+          platforms: linux/amd64
+
+      # Records how and from what source the image was built, so consumers can
+      # verify it with `gh attestation verify`.
+      - name: Attest build provenance
+        uses: actions/attest-build-provenance@v4
+        with:
+          subject-name: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          subject-digest: ${{ steps.build.outputs.digest }}
+          push-to-registry: true
+
+      - name: Summarise
+        run: |
+          {
+            echo "### Published"
+            echo
+            echo '```'
+            echo "${{ steps.meta.outputs.tags }}"
+            echo '```'
+            echo
+            echo "Digest: \`${{ steps.build.outputs.digest }}\`"
+          } >> "$GITHUB_STEP_SUMMARY"
