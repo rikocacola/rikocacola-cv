@@ -1,8 +1,8 @@
-import { ArrowDownToLine, Mail, ArrowRight } from 'lucide-react';
-import { GithubIcon, LinkedinIcon } from '~/components/icons/SocialIcons';
-import { profile } from '~/data/portfolio';
-import { Button } from '~/components/Button';
-import { SectionHeader } from '~/components/SectionHeader';
+import { ArrowDownToLine, Mail, ArrowRight } from "lucide-react";
+import { GithubIcon, LinkedinIcon } from "~/components/icons/SocialIcons";
+import { profile } from "~/data/portfolio";
+import { Button } from "~/components/Button";
+import { SectionHeader } from "~/components/SectionHeader";
 
 export function HeroSection() {
   return (
@@ -32,8 +32,9 @@ export function HeroSection() {
             <span className="text-mint">{profile.name}</span>
             <span className="text-ink">.</span>
             <br />
-            <span className="mt-3 inline-block text-sky">I build software</span>{' '}
-            <span className="text-ink">that doesn&rsquo;t get in the way.</span>
+            <span className="mt-3 inline-block text-sky">
+              I build software
+            </span>{" "}
           </h1>
 
           <p className="mt-6 max-w-[58ch] text-lg leading-relaxed text-ink-dim">
@@ -49,7 +50,10 @@ export function HeroSection() {
           <div className="mt-10 flex flex-wrap items-center gap-3">
             <Button
               variant="primary"
-              href={profile.resumeUrl}
+              target="_blank"
+              href={
+                "https://drive.google.com/file/d/1kQHDPx4thG6MOse7se8b5_RVIaaiwGc_/view?usp=drive_link"
+              }
               leftIcon={<ArrowDownToLine size={15} />}
             >
               Download resume
@@ -109,7 +113,10 @@ export function HeroSection() {
             </div>
             <dl className="mt-5 grid grid-cols-3 gap-2">
               {profile.stats.map((stat) => (
-                <div key={stat.label} className="rounded-lg bg-navy/60 p-3 ring-1 ring-white/5">
+                <div
+                  key={stat.label}
+                  className="rounded-lg bg-navy/60 p-3 ring-1 ring-white/5"
+                >
                   <dt className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink-mute">
                     {stat.label}
                   </dt>

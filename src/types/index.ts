@@ -29,16 +29,22 @@ export interface ExperienceItem {
   stack: string[];
 }
 
+export interface Contribution {
+  title: string;
+  description: string;
+}
+
 export interface ProjectItem {
   id: string;
   title: string;
   description: string;
   stack: string[];
-  highlights?: string[];
+  contributions?: Contribution[];
   repo?: string;
   demo?: string;
   status?: 'shipped' | 'wip' | 'archived';
-  year: string;
+  confidential?: boolean;
+  category?: 'work' | 'personal';
 }
 
 export interface BlogPost {

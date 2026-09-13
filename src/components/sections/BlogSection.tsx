@@ -1,4 +1,5 @@
-import { ArrowUpRight, Calendar, Clock } from 'lucide-react';
+import { useMemo } from 'react';
+import { ArrowUpRight, Calendar, Clock, PenLine } from 'lucide-react';
 import { posts } from '~/data/portfolio';
 import type { BlogPost } from '~/types';
 import { SectionHeader } from '~/components/SectionHeader';
@@ -48,7 +49,33 @@ function PostCard({ post, index }: { post: BlogPost; index: number }) {
   );
 }
 
+function EmptyBlog() {
+  return (
+    <div className="grid place-items-center rounded-2xl border border-dashed border-white/10 bg-navy-deep/30 p-10 text-center sm:p-14">
+      <span
+        aria-hidden
+        className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-navy ring-1 ring-sky/20"
+      >
+        <PenLine size={18} className="text-sky" />
+      </span>
+      <h3 className="text-lg font-semibold text-ink">Nothing to read here — yet.</h3>
+      <p className="mt-2 max-w-sm text-sm leading-relaxed text-ink-dim">
+        I write when I have something specific to say. A couple of drafts in flight,
+        but nothing polished enough to put on the shelf.
+      </p>
+      <a
+        href="mailto:riko.devmail@gmail.com?subject=Writing%20subscription"
+        className="focus-ring mt-5 inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 font-mono text-xs text-sky transition hover:bg-sky/10"
+      >
+        Get a quiet email when something ships →
+      </a>
+    </div>
+  );
+}
+
 export function BlogSection() {
+  const visiblePosts = useMemo(() => posts, []);
+
   return (
     <section
       id="blog"
@@ -57,22 +84,28 @@ export function BlogSection() {
     >
       <SectionHeader index="05" label="Blog" hint="notes on craft" />
 
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-        {posts.map((post, idx) => (
-          <PostCard key={post.id} post={post} index={idx} />
-        ))}
-      </div>
+      {visiblePosts.length > 0 ? (
+        <>
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+            {visiblePosts.map((post, idx) => (
+              <PostCard key={post.id} post={post} index={idx} />
+            ))}
+          </div>
 
-      <div className="mt-8 flex items-center gap-3 font-mono text-xs text-ink-mute">
-        <span className="text-sky">→</span>
-        <span>more on </span>
-        <a
-          href="#"
-          className="focus-ring rounded text-mint link-underline transition"
-        >
-          /writing
-        </a>
-      </div>
+          <div className="mt-8 flex items-center gap-3 font-mono text-xs text-ink-mute">
+            <span className="text-sky">→</span>
+            <span>more on </span>
+            <a
+              href="#"
+              className="focus-ring rounded text-mint link-underline transition"
+            >
+              /writing
+            </a>
+          </div>
+        </>
+      ) : (
+        <EmptyBlog />
+      )}
     </section>
   );
 }

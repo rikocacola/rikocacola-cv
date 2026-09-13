@@ -48,7 +48,7 @@ export function SkillsSection() {
     >
       <SectionHeader index="02" label="Skills" hint="what i use day to day" />
 
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
         {groups.map((group) => {
           const Icon = iconMap[group.icon] ?? Cpu;
           return (

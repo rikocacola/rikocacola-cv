@@ -1,10 +1,11 @@
-import { useCallback } from 'react';
-import { Mail, Terminal } from 'lucide-react';
-import { GithubIcon, LinkedinIcon } from '~/components/icons/SocialIcons';
-import { useScrollProgress } from '~/hooks/useScrollProgress';
-import { navItems, profile } from '~/data/portfolio';
-import type { SectionId } from '~/types';
-import { cn } from '~/lib/cn';
+import { useCallback } from "react";
+import { Mail } from "lucide-react";
+import { Logo } from "~/components/icons/Logo";
+import { GithubIcon, LinkedinIcon } from "~/components/icons/SocialIcons";
+import { useScrollProgress } from "~/hooks/useScrollProgress";
+import { navItems, profile } from "~/data/portfolio";
+import type { SectionId } from "~/types";
+import { cn } from "~/lib/cn";
 
 interface SidebarProps {
   active: SectionId;
@@ -19,7 +20,7 @@ export function Sidebar({ active, onNavigate }: SidebarProps) {
       e.preventDefault();
       onNavigate(id);
     },
-    [onNavigate]
+    [onNavigate],
   );
 
   return (
@@ -39,14 +40,14 @@ export function Sidebar({ active, onNavigate }: SidebarProps) {
       <div>
         <a
           href="#about"
-          onClick={(e) => handleClick(e, 'about')}
+          onClick={(e) => handleClick(e, "about")}
           className="focus-ring group flex items-center gap-2.5"
         >
           <span
             aria-hidden
-            className="inline-flex h-9 w-9 items-center justify-center rounded-md bg-navy-deeper ring-1 ring-mint/30 transition group-hover:ring-mint/70"
+            className="inline-flex h-9 w-9 items-center justify-center overflow-hidden rounded-md bg-navy-deeper ring-1 ring-mint/30 transition group-hover:ring-mint/70"
           >
-            <Terminal size={16} className="text-mint" />
+            <Logo size={36} className="h-9 w-9" />
           </span>
           <span className="flex flex-col leading-none">
             <span className="text-[15px] font-semibold tracking-tight text-ink">
@@ -59,7 +60,8 @@ export function Sidebar({ active, onNavigate }: SidebarProps) {
         </a>
 
         <p className="mt-6 max-w-[14rem] font-mono text-[11px] leading-relaxed text-ink-mute">
-          <span className="text-sky">$</span> whoami<br />
+          <span className="text-sky">$</span> whoami
+          <br />
           <span className="text-mint">{profile.location}</span>
           <span className="text-ink-mute"> · </span>
           <span className="text-leaf">{profile.status.toLowerCase()}</span>
@@ -77,25 +79,25 @@ export function Sidebar({ active, onNavigate }: SidebarProps) {
                   <a
                     href={`#${item.id}`}
                     onClick={(e) => handleClick(e, item.id)}
-                    aria-current={isActive ? 'true' : undefined}
+                    aria-current={isActive ? "true" : undefined}
                     className={cn(
-                      'focus-ring group relative flex items-center gap-3 rounded-md px-3 py-2 transition-colors',
+                      "focus-ring group relative flex items-center gap-3 rounded-md px-3 py-2 transition-colors",
                       isActive
-                        ? 'text-mint'
-                        : 'text-ink-dim hover:bg-white/5 hover:text-ink'
+                        ? "text-mint"
+                        : "text-ink-dim hover:bg-white/5 hover:text-ink",
                     )}
                   >
                     <span
                       aria-hidden
                       className={cn(
-                        'absolute left-0 top-1/2 h-5 w-[2px] -translate-y-1/2 rounded-full transition-all duration-300',
-                        isActive ? 'bg-mint' : 'bg-transparent'
+                        "absolute left-0 top-1/2 h-5 w-[2px] -translate-y-1/2 rounded-full transition-all duration-300",
+                        isActive ? "bg-mint" : "bg-transparent",
                       )}
                     />
                     <span
                       className={cn(
-                        'font-mono text-xs transition-colors',
-                        isActive ? 'text-mint' : 'text-sky/70'
+                        "font-mono text-xs transition-colors",
+                        isActive ? "text-mint" : "text-sky/70",
                       )}
                     >
                       {item.index}

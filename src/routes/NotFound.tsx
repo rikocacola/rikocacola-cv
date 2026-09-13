@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, Terminal } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
+import { Logo } from '~/components/icons/Logo';
 
 export function NotFound() {
   const navigate = useNavigate();
@@ -7,8 +8,8 @@ export function NotFound() {
   return (
     <main className="grid min-h-dvh place-items-center bg-navy px-6 text-ink">
       <div className="max-w-md text-center">
-        <div className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-md bg-navy-deeper ring-1 ring-mint/30">
-          <Terminal size={18} className="text-mint" />
+        <div className="mx-auto inline-flex h-14 w-14 overflow-hidden rounded-xl bg-navy-deeper ring-1 ring-mint/30">
+          <Logo size={56} className="h-14 w-14" />
         </div>
         <p className="mt-6 font-mono text-sm tracking-[0.18em] text-sky/80">404</p>
         <h1 className="mt-3 text-3xl font-semibold text-ink">

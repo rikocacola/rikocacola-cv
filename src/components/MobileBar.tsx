@@ -1,4 +1,5 @@
-import { Menu, Terminal } from 'lucide-react';
+import { Menu } from 'lucide-react';
+import { Logo } from '~/components/icons/Logo';
 import { profile } from '~/data/portfolio';
 
 interface MobileBarProps {
@@ -9,13 +10,10 @@ export function MobileBar({ onOpen }: MobileBarProps) {
   return (
     <header className="sticky top-0 z-30 flex items-center justify-between border-b border-white/5 bg-navy/90 px-5 py-3 backdrop-blur lg:hidden">
       <a href="#about" className="flex items-center gap-2.5">
-        <span
-          aria-hidden
-          className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-navy-deeper ring-1 ring-mint/30"
-        >
-          <Terminal size={14} className="text-mint" />
+        <span aria-hidden className="inline-flex h-8 w-8 overflow-hidden rounded-md bg-navy-deeper ring-1 ring-mint/30">
+          <Logo size={32} className="h-8 w-8" />
         </span>
-        <span className="font-mono text-sm font-semibold tracking-tight text-ink">
+        <span className="text-sm font-semibold tracking-tight text-ink">
           {profile.handle}
         </span>
       </a>
