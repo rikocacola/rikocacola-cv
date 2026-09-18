@@ -51,9 +51,7 @@ export function HeroSection() {
             <Button
               variant="primary"
               target="_blank"
-              href={
-                "https://drive.google.com/file/d/1kQHDPx4thG6MOse7se8b5_RVIaaiwGc_/view?usp=drive_link"
-              }
+              href={"https://drive.google.com/file/d/1yrEC03tglVgVBMoj7OxJuPx_L31cxEtt/view?usp=drive_link"}
               leftIcon={<ArrowDownToLine size={15} />}
             >
               Download resume
