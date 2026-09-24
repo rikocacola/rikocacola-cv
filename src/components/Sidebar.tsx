@@ -26,7 +26,7 @@ export function Sidebar({ active, onNavigate }: SidebarProps) {
   return (
     <aside
       aria-label="Primary"
-      className="sticky top-0 hidden h-dvh w-[450px] shrink-0 flex-col justify-between border-r border-white/5 bg-navy py-8 pl-8 pr-6 shadow-sidebar-glow lg:flex"
+      className="sticky top-0 hidden h-dvh w-[350px] shrink-0 flex-col justify-between border-r border-white/5 bg-navy py-8 pl-8 pr-6 shadow-sidebar-glow lg:flex"
     >
       <span
         aria-hidden
